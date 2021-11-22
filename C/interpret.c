@@ -86,6 +86,8 @@ void brainfuck(char* src_code, ssize_t src_code_size, int* data, ssize_t data_si
                     code_ptr = get_close_bracket(brackets, num_brackets, code_ptr);
                 }
                 break;
+            case ' ': case '\n':
+                break;
             default:
                 fprintf(stderr, "Invalid char: %c\n", src_code[code_ptr]);
                 exit(EXIT_FAILURE);
