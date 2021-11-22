@@ -25,7 +25,7 @@ int main(int argc, char ** argv)
 {
     // Verify usage of script
     if (argc != 2) {
-        fprintf(stderr, "Usage: interpret input-file\n");
+        fprintf(stderr, "Usage: ./interpret input-file\n");
         exit(EXIT_FAILURE);
     }
 
