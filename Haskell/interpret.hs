@@ -51,7 +51,7 @@ main :: IO ()
 main = do
     args <- getArgs
     let file_path = if length args /= 1 then
-            error "Usage: interpret input-file"
+            error "Usage: ./interpret input-file"
         else args !! 0
     file_content <- readFile file_path
     let src_code = filter (/=' ') $ filter (/='\n') file_content
