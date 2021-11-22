@@ -81,6 +81,7 @@ void brainfuck(char* src_code, ssize_t src_code_size, int* data, ssize_t data_si
                 break;
             case ',':
                 data[data_ptr] = getchar();
+                getchar();
                 break;
             case '[':
                 if (data[data_ptr] == 0) {
