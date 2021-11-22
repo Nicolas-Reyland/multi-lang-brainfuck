@@ -1,7 +1,6 @@
 import os, sys
 
-if len(sys.argv) != 2:
-	raise Exception("Usage: interpret.py input-file")
+assert len(sys.argv) == 2, "Usage: interpret.py input-file"
 
 file_path = sys.argv[1]
 with open(file_path, 'r') as f:
@@ -15,8 +14,7 @@ def find_bracket_index(s, n):
 		elif s[index] == ']':
 			lvl -= 1
 		index += 1
-	if lvl != 0:
-		raise Exception("Brackets do not match")
+	assert lvl == 0, "Brackets do not match"
 	return index
 
 def fill_brackets(s, n):
@@ -36,12 +34,10 @@ code_ptr = data_ptr = 0
 while code_ptr != num_instructions:
 	if code[code_ptr] == '>':
 		data_ptr += 1
-		if data_ptr == data_size:
-			raise OverflowError(f"Data pointer overflow. Fixed data size: {data_size}")
+		assert data_ptr != data_size, f"Data pointer overflow. Fixed data size: {data_size}"
 	elif code[code_ptr] == '<':
 		data_ptr -= 1
-		if data_ptr == -1:
-			raise ValueError(f"Negative data pointer (-1).")
+		assert data_ptr != -1, "Negative data pointer (-1)."
 	elif code[code_ptr] == '+':
 		data[data_ptr] += 1
 	elif code[code_ptr] == '-':
@@ -57,5 +53,5 @@ while code_ptr != num_instructions:
 		if data[data_ptr] != 0:
 			code_ptr = brackets[code_ptr]
 	else:
-		raise Exception(f"Invalid char: {code[code_ptr]}")
+		raise ValueError(f"Invalid char: {code[code_ptr]}")
 	code_ptr += 1
