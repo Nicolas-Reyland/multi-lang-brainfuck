@@ -47,7 +47,6 @@ evaluateBrainfuck src_code code_ptr data_array data_ptr bracket_map
                 else succ code_ptr) data_array data_ptr bracket_map
             c -> error $ "Unkown char: " ++ [c]
 
-
 main :: IO ()
 main = do
     args <- getArgs
@@ -58,3 +57,4 @@ main = do
     let src_code = filter (/=' ') $ filter (/='\n') file_content
         bracket_map = Map.fromList $ fillBrackets src_code 0
     evaluateBrainfuck src_code 0 (repeat 0) 0 bracket_map
+
