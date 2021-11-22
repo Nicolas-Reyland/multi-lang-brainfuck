@@ -1,6 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* Possible upgrades :
+ * - ignore whitespaces when loading the file
+ * - better bracket-couple allocation
+ * - other things
+ */
+
 #define BUFSIZE 4096
 #define DATA_SIZE 30000
 
