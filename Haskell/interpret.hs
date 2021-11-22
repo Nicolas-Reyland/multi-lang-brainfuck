@@ -51,9 +51,9 @@ evaluateBrainfuck src_code code_ptr data_array data_ptr bracket_map
 main :: IO ()
 main = do
     args <- getArgs
-    let file_path = if length args /= 2 then
+    let file_path = if length args /= 1 then
             error "Usage: interpret input-file"
-        else args !! 1
+        else args !! 0
     file_content <- readFile file_path
     let src_code = filter (/=' ') $ filter (/='\n') file_content
         bracket_map = Map.fromList $ fillBrackets src_code 0
