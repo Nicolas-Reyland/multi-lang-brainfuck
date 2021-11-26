@@ -151,27 +151,13 @@ struct Bracket find_bracket_index(std::vector<char> src_code, ssize_t char_index
 
 std::vector<struct Bracket> find_code_brackets(std::vector<char> src_code)
 {
-    // TODO: do a one-traversal technique : with reallocs & bracket-buffers->less realloc calls, on more brackets at once
-    // we traverse the src_code two times :
-    // 1. number of brackets (for allocating memory)
-    // 2. for detecting the pairs
-
-    ssize_t num_brackets = 0;
-    for (const char c: src_code) {
-        if (c == '[') {
-            (num_brackets)++;
-        }
-    }
-
-    std::vector<struct Bracket> brackets(num_brackets);
-    ssize_t bracket_index = 0, char_index = 0;
-    while (bracket_index != num_brackets)
+    std::vector<struct Bracket> brackets(0);
+    ssize_t src_code_size = src_code.size();
+    for (ssize_t char_index = 0; char_index < src_code_size; char_index++)
     {
         if (src_code[char_index] == '[') {
-            brackets[bracket_index] = find_bracket_index(src_code, char_index);
-            bracket_index++;
+            brackets.push_back(find_bracket_index(src_code, char_index));
         }
-        char_index++;
     }
 
     return brackets;
