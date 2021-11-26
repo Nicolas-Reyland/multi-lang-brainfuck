@@ -64,7 +64,6 @@ void brainfuck(std::vector<char> src_code, std::vector<int> data)
     ssize_t data_ptr = 0,
             code_ptr = 0,
             src_code_size = src_code.size(),
-            data_size = data.size(),
             num_brackets = brackets.size();
     while (code_ptr != src_code_size)
     {
@@ -72,8 +71,8 @@ void brainfuck(std::vector<char> src_code, std::vector<int> data)
         {
             case '>':
                 data_ptr++;
-                if (data_ptr == data_size) {
-                    std::cerr << "Data pointer overflow. Fixed data size: " <<  data_size << std::endl;
+                if (data_ptr == DATA_SIZE) {
+                    std::cerr << "Data pointer overflow. Fixed data size: " <<  DATA_SIZE << std::endl;
                     exit(EXIT_FAILURE);
                 }
                 break;
@@ -159,7 +158,6 @@ std::vector<struct Bracket> find_code_brackets(std::vector<char> src_code)
             brackets.push_back(find_bracket_index(src_code, char_index));
         }
     }
-
     return brackets;
 }
 
