@@ -38,7 +38,7 @@ g++ interpreter.cpp -o interpreter
 
 ### 
 
-### Haskell
+### Rust
 ```
 rustc interpret.hs
 ./interpret brainfuck-source-file
