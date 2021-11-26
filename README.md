@@ -38,6 +38,12 @@ g++ interpreter.cpp -o interpreter
 
 ### 
 
+### Haskell
+```
+rustc interpret.hs
+./interpret brainfuck-source-file
+```
+
 
 ## TODO
 
@@ -46,7 +52,7 @@ g++ interpreter.cpp -o interpreter
  - [x] C++
  - [x] Haskell
  - [ ] JavaScript
- - [ ] Rust
+ - [x] Rust
  - [ ] OCaml
  - [ ] Ruby
  - [ ] C#
