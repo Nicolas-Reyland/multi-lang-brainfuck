@@ -46,6 +46,9 @@ int main(int argc, char ** argv)
 
     // interpret
     brainfuck(src_code, fsize, data, DATA_SIZE);
+
+    free(src_code);
+    free(data);
 }
 
 void brainfuck(char* src_code, ssize_t src_code_size, int* data, ssize_t data_size)
@@ -102,6 +105,7 @@ void brainfuck(char* src_code, ssize_t src_code_size, int* data, ssize_t data_si
         }
         code_ptr++;
     }
+    free(brackets);
 }
 
 struct Bracket find_bracket_index(char* src_code, ssize_t char_index, ssize_t src_code_size)
